@@ -16,6 +16,8 @@ export const runtimeProcessDeclarationEntries = {
 };
 export const vitestWorkerDeclarationEntries = {
   ...runtimeProcessDeclarationEntries,
+  "test-support/bench-session-history-runtime":
+    "scripts/bench-session-history-runtime.test-support.ts",
   "extensions/discord/src/voice/audio-worker-entrypoints.test-support":
     "extensions/discord/src/voice/audio-worker-entrypoints.test-support.ts",
   // Codex is package-owned and excluded from the root runtime bundle.
@@ -85,6 +87,8 @@ export const vitestWorkerDeclarationEntries = {
     "src/state/openclaw-database-verify-runtime.test-support.ts",
   "state/openclaw-state-lease-runtime.test-support":
     "src/state/openclaw-state-lease-runtime.test-support.ts",
+  "transcripts/library-timezone-runtime.test-support":
+    "src/transcripts/library-timezone-runtime.test-support.ts",
   "state/openclaw-agent-db-module-identity-runtime.test-support":
     "src/state/openclaw-agent-db-module-identity-runtime.test-support.ts",
   "tui/tui-pty-runtime-test-support": "src/tui/tui-pty-runtime-test-support.ts",
