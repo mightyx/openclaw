@@ -461,6 +461,9 @@ With `announce`, agent, command, and script results belong to the chat or topic 
   </Accordion>
   <Accordion title="What 'fresh session' means for isolated jobs">
     A new transcript/session id per run. OpenClaw carries safe preferences (thinking/fast/verbose settings, labels, explicit user-selected model/auth overrides), but does not inherit ambient conversation context from an older automation session row: channel/group routing, send or queue policy, elevation, origin, or ACP runtime binding. Use `current` or `session:<id>` when a recurring job should deliberately build on the same conversation context.
+
+    Messages sent to the job's `cron:<jobId>` session, for example with `sessions_send`, address its latest run. A message still queued when that run ends can fail, and the next run reassigns the key, so later runs start without it. Put information that later runs need in the job payload or [scratch](#job-scratch-and-quiet-results).
+
   </Accordion>
   <Accordion title="Unattended run contract">
     Isolated automation and hook agent turns are explicitly unattended: no one is present to clarify or approve. The final reply must be the deliverable rather than a plan, acknowledgement, or request for input. The agent returns `NO_REPLY` when nothing needs doing. When the task failed or is blocked, the reply explains what failed and what it tried in ordinary prose.
